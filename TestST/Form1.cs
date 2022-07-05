@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Reflection;
+using System.Text;
 
 namespace TestST
 {
@@ -65,7 +66,6 @@ namespace TestST
             reqThread.Start();
             SchimbareOra("h:mm");
         }
-        //----------------------------------------------------------------------------------//
 
         public void SchimbareOra(string format)
         {
@@ -88,6 +88,11 @@ namespace TestST
             }
             ));
         }
+
+        //----------------------------------------------------------------------------------//
+
+        
+        //UNIVERSITATI----------------------------------------------------------------------
         public void ThreadUniversitati()
         {
             var client = new HttpClient();
@@ -105,7 +110,14 @@ namespace TestST
                     lb1.Text = item.name;
                     lb1.Location = new Point(10, dist + 10);
                     lb1.AutoSize = true;
-                    //lb1.Click += new EventHandler(this.OpenBrowser);
+                    lb1.Click += (s, e) => {
+                        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                        {
+                            string url = item.web_pages[0];
+                            url = url.Replace("&", "^&");
+                            Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
+                        }
+                    };
 
                     Label lb2 = new Label();
                     lb2.Text = item.country;
@@ -123,40 +135,46 @@ namespace TestST
                         tab_univ.Controls.Add(lb1); tab_univ.Controls.Add(lb2); tab_univ.Controls.Add(lb3);
                     }
                     ));
-                    limit--;
-                    if(limit < 0)
-                    {
-                        break;
-                    }
                 }
-                Debug.Write("STOP");
             }
             
         }
-
-        //public void OpenBrowser(object sender, EventArgs e)
-        //{
-        //    string url = "https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.process.start?view=net-6.0#system-diagnostics-process-start";
-        //    try
-        //    {
-        //        Process.Start(url);
-        //    }
-        //    catch
-        //    {    
-        //        url = url.Replace("&", "^&");
-        //        Process.Start(new ProcessStartInfo("cmd", $"/c start {url}") { CreateNoWindow = true });
-        //    }
-        //    }
-
         private void button3_Click_1(object sender, EventArgs e)
         {
-            //GoToSite("http://www.google.com");
             button3.Visible = false;
             tab_univ.AutoScroll = true;
             ThreadStart req = new ThreadStart(ThreadUniversitati);
             Thread reqThread = new Thread(req);
             reqThread.Start();
+
         }
+
+        //-----------------------------------------------------------------------------------
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(jsonData != null)
+            {
+                string fileName = @"C:\Users\bogda\source\repos\TestST\TestST\bin\Debug\net6.0-windows\date_universitati.txt";
+                if (File.Exists(fileName))
+                {
+                    File.Delete(fileName);
+                }
+                using (StreamWriter sw = File.CreateText(fileName))
+                {
+                    foreach (var item in jsonData)
+                    {
+                            sw.WriteLine(item.name + "\t" + item.country + "\t" + item.alpha_two_code + "\t" + item.web_pages[0]);
+                    }
+                }
+                
+
+            }
+            else
+            {
+                MessageBox.Show("Nu exista date");
+            }
+        }
+
 
 
     }
@@ -165,7 +183,7 @@ namespace TestST
     //CLASE-----------------------------------------------------------------------------
     public class Universitate
     {
-        //public string web_pages { get; set; }
+        public string[] web_pages { get; set; }
         public string name { get; set; }
         public string country { get; set; }
         public string alpha_two_code { get; set; }
