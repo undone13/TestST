@@ -7,6 +7,7 @@ using System.Net;
 using Newtonsoft.Json;
 using System.Data;
 using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace TestST
 {
@@ -25,8 +26,23 @@ namespace TestST
         {
             //DATE PERSONALE----------------------------------------------------------------    
 
-            string[] linii = System.IO.File.ReadAllLines("date_personale.txt");
-            
+
+
+            Assembly _assembly;
+            StreamReader _textStreamReader;
+
+            try
+            {
+                _assembly = Assembly.GetExecutingAssembly();
+                _textStreamReader = new StreamReader(_assembly.GetManifestResourceStream("TestST.Resources.date_personale.txt"));
+            }
+            catch
+            {
+                MessageBox.Show("Error accessing resources!");
+            }
+
+            string[] linii = new string[3];
+
             Label nume_prenume = new Label()
             {
                 Text = linii[0] + " " + linii[1],
@@ -42,9 +58,6 @@ namespace TestST
             tab_date.Controls.Add(nume_prenume);
             tab_date.Controls.Add(nr_telefon);
 
-            //------------------------------------------------------------------------------//
-
-            //UNIVERSITATI------------------------------------------------------------------
         }
 
 
