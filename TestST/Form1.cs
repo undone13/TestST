@@ -44,7 +44,7 @@ namespace TestST
             };
             tab_date.Controls.Add(nume_prenume);
             tab_date.Controls.Add(nr_telefon);
-
+            //------------------------------------------------------------------------------    
         }
 
 
@@ -150,11 +150,13 @@ namespace TestST
         }
 
         //-----------------------------------------------------------------------------------
+
+        //TEXT FILE--------------------------------------------------------------------------
         private void button4_Click(object sender, EventArgs e)
         {
             if(jsonData != null)
             {
-                string fileName = @"C:\Users\bogda\source\repos\TestST\TestST\bin\Debug\net6.0-windows\date_universitati.txt";
+                string fileName = "date_universitati.txt";
                 if (File.Exists(fileName))
                 {
                     File.Delete(fileName);
@@ -163,17 +165,20 @@ namespace TestST
                 {
                     foreach (var item in jsonData)
                     {
-                            sw.WriteLine(item.name + "\t" + item.country + "\t" + item.alpha_two_code + "\t" + item.web_pages[0]);
+                        sw.WriteLine(item.name + "\t" + item.country + "\t" + item.alpha_two_code + "\t" + item.web_pages[0]);
                     }
                 }
-                
-
             }
             else
             {
                 MessageBox.Show("Nu exista date");
             }
         }
+        //------------------------------------------------------------------------------------
+
+        //IMAGINI----------------------------------------------------------------------------
+
+
 
 
 

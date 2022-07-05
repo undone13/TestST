@@ -36,13 +36,16 @@
             this.tab_univ = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.tab_csv = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.tab_image = new System.Windows.Forms.TabPage();
             this.tab_chart = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab_ora.SuspendLayout();
             this.tab_univ.SuspendLayout();
             this.tab_csv.SuspendLayout();
+            this.tab_image.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -131,8 +134,20 @@
             this.tab_csv.Text = "csv";
             this.tab_csv.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(318, 18);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(152, 77);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "CSV";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // tab_image
             // 
+            this.tab_image.Controls.Add(this.button5);
+            this.tab_image.Controls.Add(this.textBox1);
             this.tab_image.Location = new System.Drawing.Point(4, 24);
             this.tab_image.Name = "tab_image";
             this.tab_image.Size = new System.Drawing.Size(768, 398);
@@ -149,15 +164,21 @@
             this.tab_chart.Text = "Chart";
             this.tab_chart.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // textBox1
             // 
-            this.button4.Location = new System.Drawing.Point(318, 18);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(152, 77);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "CSV";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.textBox1.Location = new System.Drawing.Point(15, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(177, 23);
+            this.textBox1.TabIndex = 0;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(222, 15);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Cauta";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -172,6 +193,8 @@
             this.tab_ora.ResumeLayout(false);
             this.tab_univ.ResumeLayout(false);
             this.tab_csv.ResumeLayout(false);
+            this.tab_image.ResumeLayout(false);
+            this.tab_image.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -189,5 +212,7 @@
         private Button button1;
         private Button button3;
         private Button button4;
+        private Button button5;
+        private TextBox textBox1;
     }
 }
