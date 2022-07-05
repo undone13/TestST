@@ -25,8 +25,8 @@ namespace TestST
         {
             //DATE PERSONALE----------------------------------------------------------------    
 
-            string[] linii = System.IO.File.ReadAllLines(@"source\repos\TestST\TestST\Resources\date_personale.txt");
-
+            string[] linii = System.IO.File.ReadAllLines("date_personale.txt");
+            
             Label nume_prenume = new Label()
             {
                 Text = linii[0] + " " + linii[1],
