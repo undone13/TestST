@@ -38,9 +38,9 @@
             this.tab_csv = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.tab_image = new System.Windows.Forms.TabPage();
-            this.tab_chart = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tab_chart = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tab_ora.SuspendLayout();
             this.tab_univ.SuspendLayout();
@@ -59,7 +59,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
+            this.tabControl1.Size = new System.Drawing.Size(881, 423);
             this.tabControl1.TabIndex = 0;
             // 
             // tab_date
@@ -67,7 +67,7 @@
             this.tab_date.Location = new System.Drawing.Point(4, 24);
             this.tab_date.Name = "tab_date";
             this.tab_date.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_date.Size = new System.Drawing.Size(768, 398);
+            this.tab_date.Size = new System.Drawing.Size(873, 395);
             this.tab_date.TabIndex = 0;
             this.tab_date.Text = "Date personale";
             this.tab_date.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.tab_ora.Location = new System.Drawing.Point(4, 24);
             this.tab_ora.Name = "tab_ora";
             this.tab_ora.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ora.Size = new System.Drawing.Size(768, 398);
+            this.tab_ora.Size = new System.Drawing.Size(873, 395);
             this.tab_ora.TabIndex = 1;
             this.tab_ora.Text = "Schimbare format ora";
             this.tab_ora.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.tab_univ.Controls.Add(this.button3);
             this.tab_univ.Location = new System.Drawing.Point(4, 24);
             this.tab_univ.Name = "tab_univ";
-            this.tab_univ.Size = new System.Drawing.Size(768, 398);
+            this.tab_univ.Size = new System.Drawing.Size(873, 395);
             this.tab_univ.TabIndex = 2;
             this.tab_univ.Text = "Universitati";
             this.tab_univ.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@
             this.tab_csv.Controls.Add(this.button4);
             this.tab_csv.Location = new System.Drawing.Point(4, 24);
             this.tab_csv.Name = "tab_csv";
-            this.tab_csv.Size = new System.Drawing.Size(768, 398);
+            this.tab_csv.Size = new System.Drawing.Size(873, 395);
             this.tab_csv.TabIndex = 3;
             this.tab_csv.Text = "csv";
             this.tab_csv.UseVisualStyleBackColor = true;
@@ -150,41 +150,42 @@
             this.tab_image.Controls.Add(this.textBox1);
             this.tab_image.Location = new System.Drawing.Point(4, 24);
             this.tab_image.Name = "tab_image";
-            this.tab_image.Size = new System.Drawing.Size(768, 398);
+            this.tab_image.Size = new System.Drawing.Size(873, 395);
             this.tab_image.TabIndex = 4;
             this.tab_image.Text = "Imagini";
             this.tab_image.UseVisualStyleBackColor = true;
             // 
-            // tab_chart
-            // 
-            this.tab_chart.Location = new System.Drawing.Point(4, 24);
-            this.tab_chart.Name = "tab_chart";
-            this.tab_chart.Size = new System.Drawing.Size(768, 398);
-            this.tab_chart.TabIndex = 5;
-            this.tab_chart.Text = "Chart";
-            this.tab_chart.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(15, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(177, 23);
-            this.textBox1.TabIndex = 0;
-            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(222, 15);
+            this.button5.Location = new System.Drawing.Point(198, 15);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 1;
             this.button5.Text = "Cauta";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(15, 14);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(177, 23);
+            this.textBox1.TabIndex = 0;
+            // 
+            // tab_chart
+            // 
+            this.tab_chart.Location = new System.Drawing.Point(4, 24);
+            this.tab_chart.Name = "tab_chart";
+            this.tab_chart.Size = new System.Drawing.Size(873, 395);
+            this.tab_chart.TabIndex = 5;
+            this.tab_chart.Text = "Chart";
+            this.tab_chart.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(896, 440);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
