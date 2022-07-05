@@ -26,22 +26,8 @@ namespace TestST
         {
             //DATE PERSONALE----------------------------------------------------------------    
 
-
-
-            Assembly _assembly;
-            StreamReader _textStreamReader;
-
-            try
-            {
-                _assembly = Assembly.GetExecutingAssembly();
-                _textStreamReader = new StreamReader(_assembly.GetManifestResourceStream("TestST.Resources.date_personale.txt"));
-            }
-            catch
-            {
-                MessageBox.Show("Error accessing resources!");
-            }
-
-            string[] linii = new string[3];
+            string date = Properties.Resources.date_personale;
+            string[] linii = date.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
             Label nume_prenume = new Label()
             {
